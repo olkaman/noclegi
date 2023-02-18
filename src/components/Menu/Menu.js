@@ -1,5 +1,13 @@
+import styles from './Menu.module.scss';
+
 function Menu() {
-  return <div>Menu</div>;
+  return (
+    <ul className={styles.menu}>
+      <li>
+        <a href='#'>Home</a>
+      </li>
+    </ul>
+  );
 }
 
 export default Menu;

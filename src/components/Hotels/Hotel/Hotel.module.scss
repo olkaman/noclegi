@@ -1,0 +1,39 @@
+.hotelWrapper {
+  background-color: gainsboro;
+  margin-bottom: 24px;
+  max-width: 700px;
+  text-align: left;
+
+  .pictureAndInfo {
+    display: flex;
+    align-items: flex-start;
+
+    img {
+      flex: 1;
+    }
+
+    .wrapper {
+      padding: 48px;
+
+      .hotelData {
+        flex: 1;
+        text-align: left;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        .location {
+          background-color: white;
+          padding: 4px 8px;
+          border-radius: 4px;
+          display: inline-block;
+          font-size: 12px;
+        }
+      }
+
+      .description {
+        padding: 48px 0;
+      }
+    }
+  }
+}
