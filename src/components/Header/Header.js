@@ -1,12 +1,8 @@
 import SearchField from '../SearchField/SearchField';
 import styles from './Header.module.scss';
 
-function Header() {
-  return (
-    <div className={styles.header}>
-      <SearchField />
-    </div>
-  );
+function Header({ children }) {
+  return <div className={styles.header}>{children}</div>;
 }
 
 export default Header;

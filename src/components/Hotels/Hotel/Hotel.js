@@ -1,8 +1,16 @@
 import clsx from 'clsx';
 import img from '../../../assets/images/hotel1.jpg';
 import styles from './Hotel.module.scss';
+import PropTypes from 'prop-types';
 
-function Hotel() {
+const propTypes = {
+  name: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+};
+
+function Hotel({ name, location, rating, description }) {
   return (
     <div className={clsx(styles.hotelWrapper, 'container')}>
       <div className={styles.pictureAndInfo}>
@@ -10,16 +18,12 @@ function Hotel() {
         <div className={styles.wrapper}>
           <div className={styles.hotelData}>
             <div>
-              <h3>Hotel name</h3>
-              <div className={styles.location}>Warszawa</div>
+              <h3>{name}</h3>
+              <div className={styles.location}>{location}</div>
             </div>
-            <div className={styles.rating}>Ocena: 8,9</div>
+            <div className={styles.rating}>Ocena: {rating}</div>
           </div>
-          <div className={styles.description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-          </div>
+          <div className={styles.description}>{description}</div>
           <button type='button' className='btn btn-primary'>
             Więcej
           </button>
@@ -28,5 +32,7 @@ function Hotel() {
     </div>
   );
 }
+
+Hotel.propTypes = propTypes;
 
 export default Hotel;
