@@ -10,9 +10,9 @@ const propTypes = {
   description: PropTypes.string.isRequired,
 };
 
-function Hotel({ name, location, rating, description }) {
+function Hotel({ name, location, rating, description, theme }) {
   return (
-    <div className={clsx(styles.hotelWrapper, 'container')}>
+    <div className={styles.hotelWrapper}>
       <div className={styles.pictureAndInfo}>
         <img src={img} alt='' />
         <div className={styles.wrapper}>
@@ -24,7 +24,7 @@ function Hotel({ name, location, rating, description }) {
             <div className={styles.rating}>Ocena: {rating}</div>
           </div>
           <div className={styles.description}>{description}</div>
-          <button type='button' className='btn btn-primary'>
+          <button type='button' className={`btn btn-${theme}`}>
             Więcej
           </button>
         </div>

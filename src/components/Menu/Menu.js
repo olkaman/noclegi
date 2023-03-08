@@ -1,10 +1,12 @@
 import styles from './Menu.module.scss';
 
-function Menu() {
+function Menu({ theme }) {
   return (
     <ul className={styles.menu}>
       <li>
-        <a href='#'>Home</a>
+        <a href='#' className={`text-${theme}`}>
+          Home
+        </a>
       </li>
     </ul>
   );

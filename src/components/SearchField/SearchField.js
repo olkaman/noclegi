@@ -7,7 +7,7 @@ const propTypes = {
   searchHotel: PropTypes.func.isRequired,
 };
 
-function SearchField({ searchHotel }) {
+function SearchField({ searchHotel, theme }) {
   const [term, setTerm] = useState('');
 
   const searchHandler = () => {
@@ -21,7 +21,7 @@ function SearchField({ searchHotel }) {
   return (
     <div className={styles.wrapper}>
       <input className='form-control' type='text' placeholder='Szukaj...' onChange={(e) => setTerm(e.target.value)} onKeyDown={handleKeyDown} />
-      <button className={clsx(styles.button, 'btn', 'btn-primary')} type='button' onClick={searchHandler}>
+      <button className={clsx(styles.button, 'btn', `btn-${theme}`)} type='button' onClick={searchHandler}>
         Szukaj
       </button>
     </div>

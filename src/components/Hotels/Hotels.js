@@ -7,13 +7,13 @@ const propTypes = {
 };
 
 function Hotels(props) {
-  const { hotels } = props;
-  console.log(hotels);
+  const { hotels, theme } = props;
+
   return (
     <div>
       <h2 className={styles.header}>Oferta:</h2>
       {hotels.map((hotel) => (
-        <Hotel key={hotel.id} {...hotel} />
+        <Hotel key={hotel.id} {...hotel} theme={theme} />
       ))}
     </div>
   );

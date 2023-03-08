@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import './App.scss';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Hotels from './components/Hotels/Hotels';
+import Layout from './components/Layout/Layout';
 import Menu from './components/Menu/Menu';
 import SearchField from './components/SearchField/SearchField';
+import ThemeButton from './components/ThemeButton/ThemeButton';
 
 function App() {
   const hotels = [
@@ -34,19 +37,31 @@ function App() {
   ];
 
   const [hotelsView, setHotelsView] = useState(hotels);
+  const [theme, setTheme] = useState('primary');
 
   const searchHotel = (term) => {
     const newHotels = hotels.filter((hotel) => hotel.name.toLowerCase().includes(term.toLowerCase()));
     setHotelsView(newHotels);
   };
 
+  const onChangeTheme = () => {
+    const newTheme = theme === 'primary' ? 'danger' : 'primary';
+    setTheme(newTheme);
+  };
+
   return (
     <div className='App'>
-      <Header>
-        <SearchField searchHotel={searchHotel} />
-      </Header>
-      <Menu />
-      <Hotels hotels={hotelsView} />
+      <Layout
+        header={
+          <Header>
+            <SearchField searchHotel={searchHotel} theme={theme} />
+            <ThemeButton onChangeTheme={onChangeTheme} theme={theme} />
+          </Header>
+        }
+        menu={<Menu theme={theme} />}
+        content={<Hotels hotels={hotelsView} theme={theme} />}
+        footer={<Footer />}
+      />
     </div>
   );
 }
